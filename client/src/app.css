@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
+}
+
+@layer components {
+  .main-section {
+    @apply w-1/2 mx-auto flex flex-col gap-8 text-center mt-28 p-12 bg-white/40 shadow-lg backdrop-blur-sm;
+  }
+
+  .landing-main {
+    @apply flex flex-col gap-12;
+  }
+
+  .landing-main > p {
+    @apply text-xl;
+  }
+}

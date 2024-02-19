@@ -1,18 +1,18 @@
 {
-	"compilerOptions": {
-		"module": "esnext",
-		"target": "es2017",
-		"lib": ["dom", "es2017"],
-		"noImplicitAny": true,
-		"strict": true,
-		"sourceMap": true,
-		"baseUrl": ".",
-		"paths": {
-			"svelte/*": ["node_modules/svelte/*"]
-		},
-		"esModuleInterop": true,
-		"allowSyntheticDefaultImports": true
-	},
-	"include": ["src/**/*"],
-	"exclude": ["node_modules/*", "__sapper__/*", "public/*"]
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "es2017",
+    "lib": ["dom", "es2017"],
+    "noImplicitAny": true,
+    "strict": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "svelte/*": ["node_modules/svelte/*"]
+    },
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "extends": "./.svelte-kit/tsconfig.json",
+  "exclude": ["node_modules/*", "__sapper__/*", "public/*"]
 }

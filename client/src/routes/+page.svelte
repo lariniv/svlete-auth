@@ -1,50 +1,55 @@
-<script lang="ts">
-	let count: number = 0
+<script>
+  import Button from "/src/components/Button.svelte";
 </script>
 
+<div class="main-section relative">
+  <button
+    class="absolute text-2xl cursor-pointer block"
+    on:click={() => {
+      history.go(-1);
+    }}
+  >
+    {"<-"}
+  </button>
+  <h1 class="text-3xl font-bold">Welcome!</h1>
+  <main class="landing-main">
+    <p>
+      In this project, I am diving deep into the world of authentication, with a
+      particular focus on JSON Web Tokens (JWT). My primary goal is to gain a
+      comprehensive understanding of how JWTs operate within the context of
+      securing applications, and how they facilitate the process of
+      authentication from both the client and server sides.
+    </p>
 
+    <p>
+      Through hands-on experimentation, I aim to learn the intricacies of
+      token-based authentication, including token creation, expiration, renewal,
+      and revocation processes. This exploration will also cover the security
+      considerations necessary to protect against common vulnerabilities and
+      threats in token-based systems.
+    </p>
 
-<div class="w-1/2 mx-auto flex flex-col gap-8 text-center mt-40 p-12 bg-white/40 shadow-lg backdrop-blur-sm">
-	<h1 class="text-3xl font-bold">Sign up</h1>
+    <p>
+      By building this project, I hope not only to solidify my understanding of
+      JWTs and authentication mechanisms but also to develop a secure template
+      that can be applied to future applications requiring robust authentication
+      measures.
+    </p>
+  </main>
 
-	<form action="">
-		<div>
-			<label for="email">Email</label>
-			<input name="email" type="text">
-		</div>
+  <div class="font-semibold text-2xl">
+    It's simple to-do list, just with the authentification.
+  </div>
 
-		<div>
-			<label for="password">Password</label>
-			<input name="password" type="password">
-		</div>
-
-		<div>
-			<label for="confirm">Confrim email</label>
-			<input name="confirm" type="password">
-		</div>
-
-		<button>Sign up</button>
-	</form>
+  <div class="w-full flex gap-2">
+    <div class="w-1/2">
+      <Button title={"Sign up"} href="/signup" variant="primary" />
+    </div>
+    <div class="w-1/2">
+      <Button title={"Sign in"} href="/signin" variant="outline" />
+    </div>
+  </div>
 </div>
 
 <style>
-	form {
-		@apply flex flex-col gap-12;
-	}
-
-	form div {
-		@apply flex flex-col gap-4;
-	}
-
-	form div label {
-		@apply text-lg w-full text-start;
-	}
-
-	form div input {
-		@apply p-2 border border-gray-300 rounded-md;
-	}
-
-	form button {
-		@apply p-2 font-bold border hover:opacity-70 duration-300 transition-opacity bg-lime-400;
-	}
 </style>
