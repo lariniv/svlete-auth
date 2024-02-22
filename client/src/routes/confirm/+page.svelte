@@ -1,6 +1,28 @@
 <script lang="ts">
-  let email: string;
-  let password: string;
+  import { onMount } from "svelte";
+  let code: string;
+  import { user } from "../../config/user.store";
+
+  console.log($user.email);
+
+  async function fetchTest(body: object) {
+    const res = await fetch("http://localhost:3000/test", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+
+    if (res.ok) {
+      const data = await res.json();
+      console.log(data);
+    }
+  }
+
+  onMount(() => {
+    fetchTest({ email: $user.email });
+  });
 </script>
 
 <div class="main-section relative">
@@ -12,32 +34,18 @@
   >
     {"<-"}
   </button>
-  <h1 class="text-3xl font-bold">Sign in</h1>
+
+  <h1 class="text-3xl font-bold">Confirm your email</h1>
 
   <form
-    on:submit={() => {
-      const data = JSON.stringify({ email, password });
+    on:submit|preventDefault={() => {
+      const data = JSON.stringify({ code });
       fetch("http://localhost:3000/api/signin");
     }}
   >
     <div>
-      <label for="email">Email</label>
-      <input
-        name="email"
-        type="text"
-        bind:value={email}
-        placeholder="johnsmith@gmail.com"
-      />
-    </div>
-
-    <div>
-      <label for="password">Password</label>
-      <input
-        name="password"
-        type="password"
-        bind:value={password}
-        placeholder="********"
-      />
+      <label for="code">Code</label>
+      <input name="code" type="text" bind:value={code} placeholder="000000" />
     </div>
 
     <button>Sign in</button>

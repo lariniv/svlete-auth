@@ -6,10 +6,6 @@
     "noImplicitAny": true,
     "strict": true,
     "sourceMap": true,
-    "baseUrl": ".",
-    "paths": {
-      "svelte/*": ["node_modules/svelte/*"]
-    },
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true
   },
